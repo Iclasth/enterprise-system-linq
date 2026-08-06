@@ -35,10 +35,7 @@ if (loginEmail == "admin123@gmail.com" && loginPassword == "Admin1234")
         {
             using (StreamReader sr = File.OpenText(path))
             {
-                if (path == null)
-                {
-                    throw new ArgumentNullException();
-                }
+                
 
                 while (!sr.EndOfStream)
                 {
@@ -63,12 +60,20 @@ if (loginEmail == "admin123@gmail.com" && loginPassword == "Admin1234")
                     Console.WriteLine(item);
                 }
                 Console.WriteLine($"Sum of salary of people whose name starts with 'M': {sum.ToString("C2")}");
+                Console.WriteLine();
             }
         }
         catch (IOException e)
         {
             Console.WriteLine($"An error occurred: {e.Message}");
         }
+
+        Console.Write("Do you wanna access others employees info (y/another key)? ");
+
+        key = Console.ReadKey().KeyChar;
+        Console.WriteLine();
+        if (key != 'y') return;
+        
     }
     
 }
